@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Sum Sub Calculator Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Sum Calculator Test(failed)" verbose="0">
+    <groups>
+      <run>
+        <include name="meh"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="home.epam.tc.hw1.simple.CalculatorSumTest">
+        <methods>
+          <include name="sumDoubleTest" invocation-numbers="0 1 2"/>
+        </methods>
+      </class> <!-- home.epam.tc.hw1.simple.CalculatorSumTest -->
+    </classes>
+  </test> <!-- Sum Calculator Test(failed) -->
+</suite> <!-- Failed suite [Sum Sub Calculator Test Suite] -->

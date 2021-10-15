@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="1.073" tests="15" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Users\Dedyshka\IdeaProjects\epamHomeworks\target\test-classes;C:\Users\Dedyshka\IdeaProjects\epamHomeworks\target\classes;C:\Users\Dedyshka\.m2\repository\org\testng\testng\7.4.0\testng-7.4.0.jar;C:\Users\Dedyshka\.m2\repository\com\beust\jcommander\1.78\jcommander-1.78.jar;C:\Users\Dedyshka\.m2\repository\org\webjars\jquery\3.5.1\jquery-3.5.1.jar;C:\Users\Dedyshka\.m2\repository\org\assertj\assertj-core\3.21.0\assertj-core-3.21.0.jar;C:\Users\Dedyshka\IdeaProjects\epamHomeworks\src\main\resources\calculator-1.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="C:\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\Dedyshka\AppData\Local\Temp\surefire8414572776457022842\surefirebooter10704598267234944106.jar C:\Users\Dedyshka\AppData\Local\Temp\surefire8414572776457022842 2021-10-15T19-05-21_501-jvmRun1 surefire17847437624894573477tmp surefire_010050562394563157247tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Dedyshka\IdeaProjects\epamHomeworks\target\test-classes;C:\Users\Dedyshka\IdeaProjects\epamHomeworks\target\classes;C:\Users\Dedyshka\.m2\repository\org\testng\testng\7.4.0\testng-7.4.0.jar;C:\Users\Dedyshka\.m2\repository\com\beust\jcommander\1.78\jcommander-1.78.jar;C:\Users\Dedyshka\.m2\repository\org\webjars\jquery\3.5.1\jquery-3.5.1.jar;C:\Users\Dedyshka\.m2\repository\org\assertj\assertj-core\3.21.0\assertj-core-3.21.0.jar;C:\Users\Dedyshka\IdeaProjects\epamHomeworks\src\main\resources\calculator-1.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Dedyshka"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2019-01-15"/>
+    <property name="java.home" value="C:\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Dedyshka\IdeaProjects\epamHomeworks"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Dedyshka\AppData\Local\Temp\surefire8414572776457022842\surefirebooter10704598267234944106.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.2+9"/>
+    <property name="user.name" value="Dedyshka"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\Dedyshka\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Dedyshka\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2021.2.2"/>
+    <property name="java.version" value="11.0.2"/>
+    <property name="user.dir" value="C:\Users\Dedyshka\IdeaProjects\epamHomeworks"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\apache-maven-3.8.3\bin;C:\Users\Dedyshka\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\bin;;C:\Users\Dedyshka\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.2+9"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="multDoubleTest[1.0, 1.2, 1.0](1)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0.096"/>
+  <testcase name="multDoubleTest[5.3, 5.4, 28.0](2)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="multDoubleTest[0.4, 0.2, 0](3)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="multLongTest[2, 2, 4](1)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="multLongTest[3, 3, 9](2)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="multLongTest[6, 6, 36](3)" classname="home.epam.tc.hw1.simple.CalculatorMultTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divDoubleTest[2, 1.2, 1.6666666666666667](1)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divDoubleTest[5.3, 5.4, 0.9814814814814814](2)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divDoubleTest[0.4, 0.2, 2](3)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divExceptionLongTest[2, 0](1)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divExceptionLongTest[6, 0](2)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divExceptionLongTest[4, 0](3)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divLongTest[2, 2, 1](1)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divLongTest[6, 3, 2](2)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+  <testcase name="divLongTest[6, 2, 3](3)" classname="home.epam.tc.hw1.simple.CalculatorDivTest" time="0">
+    <system-out><![CDATA[
+]]></system-out>
+  </testcase>
+</testsuite>
