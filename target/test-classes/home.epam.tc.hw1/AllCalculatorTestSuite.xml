@@ -5,7 +5,7 @@
     <packages>
       <package name="home.epam.tc.hw1.simple"/>
       <package name="home.epam.tc.hw1.complex"/>
-      <package name="home.epam.tc.hw1.bo"/>
+      <package name="home.epam.tc.hw1.bo"></package>
     </packages>
 
   </test>
