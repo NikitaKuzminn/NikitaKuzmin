@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Different elements page test suite">
+
+  <test name="Different elements page test">
+    <classes>
+      <class name="home.epam.hw2.ex2.DifferentElementsTest"></class>
+    </classes>
+  </test>
+
+</suite>
