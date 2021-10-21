@@ -27,12 +27,17 @@
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/AllCalculatorTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
+      
     <profile>
       <id>homework01-sum-sub-test-suite</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/SumSubCalculatorTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
+      
     <profile>
       <id>homework01-mult-div-test-suite</id>
       <properties>
