@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class DifferentElementsTest extends BaseTest {
+public class DifferentElementsPageTest extends BaseTest {
 
     @Test
     public void differentElementsTest() {
@@ -17,19 +17,27 @@ public class DifferentElementsTest extends BaseTest {
         //2.Browser title assert
         softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
 
-        firstPage.clickLoginIcon();
-        firstPage.inputLogin(ConfProperties.getProperty("login"));
-        firstPage.inputPassword(ConfProperties.getProperty("password"));
-        firstPage.clickLoginBtn();
+        //3.Login steps
+        webDriver.findElement(By.id("user-icon")).click();
+        webDriver.findElement(By.id("name")).sendKeys(ConfProperties.getProperty("login"));
+        webDriver.findElement(By.id("password")).sendKeys(ConfProperties.getProperty("password"));
+        webDriver.findElement(By.id("login-button")).click();
 
         //4.Login assert
-        softAssert.assertEquals(firstPage.getUserName(), ConfProperties.getProperty("user"));
+        softAssert.assertEquals(webDriver.findElement(By.id("user-name")).getText(),
+            ConfProperties.getProperty("user"));
 
-        firstPage.clickServiceBtn();
+        //5.(6,7,8) Check Steps
+        webDriver.findElement(By.linkText("SERVICE")).click();
         webDriver.findElement(By.linkText("DIFFERENT ELEMENTS")).click();
-        differentElementsPage.getCheckboxes().get(0).click();
-        differentElementsPage.getCheckboxes().get(2).click();
-        differentElementsPage.getRadio().get(3).click();
+
+        List<WebElement> checkBoxes = webDriver.findElements(By.xpath("//label[@class=\"label-checkbox\"]"));
+        checkBoxes.get(0).click();
+        checkBoxes.get(2).click();
+
+        List<WebElement> radio = webDriver.findElements(By.xpath("//label[@class=\"label-radio\"]"));
+        radio.get(3).click();
+
         webDriver.findElement(By.className("colors")).click();
         webDriver.findElement(By.xpath("//option[text()=\"Yellow\"]")).click();
 
@@ -41,6 +49,6 @@ public class DifferentElementsTest extends BaseTest {
         softAssert.assertTrue(logTxt.get(2).getText().contains("Wind: condition changed to true"));
         softAssert.assertTrue(logTxt.get(3).getText().contains("Water: condition changed to true"));
 
-        firstPage.clickLoginIcon();
+        softAssert.assertAll();
     }
 }

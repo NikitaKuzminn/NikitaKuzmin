@@ -17,7 +17,7 @@ public class ConfProperties {
 
     static {
         try {
-            fileInputStream = new FileInputStream("src/test/resources/conf.properties");
+            fileInputStream = new FileInputStream("src/test/resources/home.epam.hw2/conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {

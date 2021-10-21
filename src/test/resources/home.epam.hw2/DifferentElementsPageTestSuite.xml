@@ -3,7 +3,7 @@
 
   <test name="Different elements page test">
     <classes>
-      <class name="home.epam.hw2.ex2.DifferentElementsTest"></class>
+      <class name="home.epam.hw2.ex2.DifferentElementsPageTest"></class>
     </classes>
   </test>
 

@@ -21,19 +21,19 @@
   </properties>
   <profiles>
     <profile>
-      <id>homework2-home-page-test-suite</id>
+      <id>homework2-differnt-page-test-suite</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/DifferentElementsPageTestSuite.xml</suite.xml.name>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/DifferentElementsPageTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
 
     <profile>
-      <id>homework02-dif-page-test-suite</id>
+      <id>homework2-home-page-test-suite</id>
       <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/HomePageTestSuite.xml</suite.xml.name>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/HomePageTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
   </profiles>
