@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Mult Div Calculator Test Suite">
+  <groups>
+    <run>
+      <include name="multDiv"/>
+    </run>
+  </groups>
+
+  <test name="Mult Calculator Test">
+    <classes>
+      <class name="home.epam.tc.hw1.simple.CalculatorMultTest"/>
+    </classes>
+  </test>
+
+  <test name="Div Calculator Test">
+    <classes>
+      <class name="home.epam.tc.hw1.simple.CalculatorDivTest"/>
+    </classes>
+  </test>
+</suite>
