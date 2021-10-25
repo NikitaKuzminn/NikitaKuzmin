@@ -1,6 +1,7 @@
 package home.epam.hw3.pages;
 
 import home.epam.hw3.confing.ConfProperties;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,9 @@ public class HomePage {
     @FindBy(linkText = "Metals & Colors")
     private WebElement metalsButton;
 
+    @FindBy(linkText = "DIFFERENT ELEMENTS")
+    private WebElement diffBtn;
+
     @FindBy(xpath = "//div[@class = \"benefit-icon\"]")
     private List<WebElement> benefitIcons;
 
@@ -51,17 +55,20 @@ public class HomePage {
     @FindBy(id = "frame")
     private WebElement buttonFrame;
 
+    @FindBy(id = "frame-button")
+    private WebElement frameButton;
+
     @FindBy(xpath = "//span[text() = \"Home\"]")
-    private WebElement rightHomeBtn;
+    private WebElement leftHomeBtn;
 
     @FindBy(xpath = "//span[text() = \"Contact form\"]")
-    private WebElement rightContactBtn;
+    private WebElement leftContactBtn;
 
     @FindBy(xpath = "//span[text() = \"Service\"]")
-    private WebElement rightServiceBtn;
+    private WebElement leftServiceBtn;
 
     @FindBy(xpath = "//span[text() = \"Metals & Colors\"]")
-    private WebElement rightMetalBtn;
+    private WebElement leftMetalBtn;
 
     @FindBy(xpath = "//span[text() = \"Elements packs\"]")
     private WebElement elementsBtn;
@@ -71,21 +78,87 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public void homePageAssert(WebDriver driver){
-        softAssert.assertTrue(driver.getTitle().contains("Писка"));
-    }
-
-    public void login(){
+    public void login() {
         loginIcon.click();
         loginField.sendKeys(ConfProperties.getProperty("login"));
         passField.sendKeys(ConfProperties.getProperty("password"));
         loginButton.click();
+        softAssert.assertEquals(userName.getText(), ConfProperties.getProperty("user"));
+        softAssert.assertTrue(userName.isDisplayed());
     }
 
-    public void assertAll(){
+    public void logout() {
+        try {
+            logoutButton.click();
+        } catch (Exception e) {
+            loginIcon.click();
+            logoutButton.click();
+        }
+    }
+
+    public void goToDiffPage() {
+        serviceButton.click();
+        diffBtn.click();
+    }
+
+    public void frameSwitch(WebDriver driver) {
+        softAssert.assertTrue(buttonFrame.isDisplayed());
+        driver.switchTo().frame(buttonFrame);
+        softAssert.assertTrue(frameButton.isDisplayed());
+    }
+
+    public void switchBack(WebDriver driver) {
+        driver.switchTo().parentFrame();
+    }
+
+    public void homePageAssert(WebDriver driver) {
+        softAssert.assertTrue(driver.getTitle().contains("Home Page"));
+    }
+
+    public void headMenuAssert() {
+        softAssert.assertEquals(homeButton.getText(), ConfProperties.getProperty("buttonTxt").toUpperCase());
+        softAssert.assertEquals(contactFormButton.getText(), ConfProperties.getProperty("buttonTxt2").toUpperCase());
+        softAssert.assertEquals(serviceButton.getText(), ConfProperties.getProperty("buttonTxt3").toUpperCase());
+        softAssert.assertEquals(metalsButton.getText(), ConfProperties.getProperty("buttonTxt4"));
+    }
+
+    public void benefitAssert() {
+        for (int i = 0; i < benefitIcons.toArray().length; i++) {
+            if (i == 3) {
+                softAssert.assertTrue(benefitIcons.get(i).isDisplayed());
+                String encod = (benefitTxt.get(i)).getText();
+                String decod = null;
+                try {
+                    decod = new String(encod.getBytes("ISO-8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                softAssert.assertEquals(decod, ConfProperties.getProperty("txt4"));
+            } else {
+                softAssert.assertTrue(benefitIcons.get(i).isDisplayed());
+                softAssert.assertEquals(benefitTxt.get(i).getText(), ConfProperties.getProperty("txt" + (1 + i)));
+            }
+        }
+    }
+
+    public void leftMenuAssert() {
+        softAssert.assertEquals(leftHomeBtn.getText(), ConfProperties.getProperty("buttonTxt"));
+        softAssert.assertTrue(leftHomeBtn.isDisplayed());
+
+        softAssert.assertEquals(leftContactBtn.getText(), ConfProperties.getProperty("buttonTxt2"));
+        softAssert.assertTrue(leftContactBtn.isDisplayed());
+
+        softAssert.assertEquals(leftServiceBtn.getText(), ConfProperties.getProperty("buttonTxt3"));
+        softAssert.assertTrue(leftServiceBtn.isDisplayed());
+
+        softAssert.assertEquals(leftMetalBtn.getText(), ConfProperties.getProperty("buttonTxt4"));
+        softAssert.assertTrue(leftMetalBtn.isDisplayed());
+
+        softAssert.assertEquals(elementsBtn.getText(), ConfProperties.getProperty("buttonTxt5"));
+        softAssert.assertTrue(elementsBtn.isDisplayed());
+    }
+
+    public void assertAll() {
         softAssert.assertAll();
     }
-
-
-
 }
