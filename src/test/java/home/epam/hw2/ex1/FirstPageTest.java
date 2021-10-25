@@ -73,7 +73,7 @@ public class FirstPageTest extends BaseTest {
         softAssert.assertTrue(webDriver.findElement(By.id("frame-button")).isDisplayed());
         webDriver.switchTo().parentFrame();
 
-        //9.Right menu assert
+        //9.Left menu assert
         WebElement homeBtn = webDriver.findElement(By.xpath("//span[text() = \"Home\"]"));
         softAssert.assertEquals(homeBtn.getText(), ConfProperties.getProperty("buttonTxt"));
         softAssert.assertTrue(homeBtn.isDisplayed());
