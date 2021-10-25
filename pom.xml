@@ -14,20 +14,37 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <testng.version>7.4.0</testng.version>
-    <assetj.version>3.21.0</assetj.version>
+    <selenium.version>4.0.0</selenium.version>
+    <webdriver.version>5.0.3</webdriver.version>
     <checkstyle.version>8.42</checkstyle.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-
+    <assertj.version>3.21.0</assertj.version>
   </properties>
-
   <profiles>
+    <profile>
+      <id>homework2-differnt-page-test-suite</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/DifferentElementsPageTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>homework2-home-page-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/HomePageTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
     <profile>
       <id>homework01-all-calculator-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/AllCalculatorTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
-      
+
     <profile>
       <id>homework01-sum-sub-test-suite</id>
       <activation>
@@ -37,7 +54,7 @@
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/SumSubCalculatorTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
-      
+
     <profile>
       <id>homework01-mult-div-test-suite</id>
       <properties>
@@ -55,9 +72,28 @@
     </dependency>
 
     <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdriver.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>${assetj.version}</version>
+      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -70,7 +106,6 @@
     </dependency>
 
   </dependencies>
-
 
   <build>
     <plugins>
