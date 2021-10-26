@@ -4,8 +4,8 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
-  <artifactId>epamHomeworks</artifactId>
+  <groupId>com.epam.training.center.kuzmin</groupId>
+  <artifactId>epam-test-auto-nikita-kuzmin</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -39,6 +39,116 @@
       </properties>
     </profile>
   </profiles>
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <testng.version>7.4.0</testng.version>
+    <assetj.version>3.21.0</assetj.version>
+    <checkstyle.version>8.42</checkstyle.version>
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>homework01-all-calculator-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/AllCalculatorTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>homework01-sum-sub-test-suite</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/SumSubCalculatorTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>homework01-mult-div-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/MultDivCalculatorTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assetj.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.epam.tat.module4</groupId>
+      <artifactId>calculator</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+    </dependency>
+
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <configLocation>
+            <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
+            https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
+          </configLocation>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          <consoleOutput>true</consoleOutput>
+          <failsOnError>true</failsOnError>
+          <linkXRef>false</linkXRef>
+        </configuration>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <suiteXmlFiles>${suite.xml.name}</suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 
   <dependencies>
     <dependency>
