@@ -16,6 +16,5 @@ public class DifferentElementsPageTest extends BaseTest {
         differentElementsPage.addConfig();
         //9.Log assert
         differentElementsPage.logTxtAssert();
-
     }
 }
