@@ -19,6 +19,7 @@
     <webdriver.version>5.0.3</webdriver.version>
     <checkstyle.version>8.42</checkstyle.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <assetj.version>3.21.0</assetj.version>
   </properties>
 
   <profiles>
@@ -38,20 +39,7 @@
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/HomePageTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
-  </profiles>
-  <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <testng.version>7.4.0</testng.version>
-    <assetj.version>3.21.0</assetj.version>
-    <checkstyle.version>8.42</checkstyle.version>
-    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-
-  </properties>
-
-  <profiles>
     <profile>
       <id>homework01-all-calculator-test-suite</id>
       <properties>
@@ -100,61 +88,10 @@
       <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
     </dependency>
 
-  </dependencies>
-
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <configLocation>
-            <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
-            https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
-          </configLocation>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <consoleOutput>true</consoleOutput>
-          <failsOnError>true</failsOnError>
-          <linkXRef>false</linkXRef>
-        </configuration>
-        <executions>
-          <execution>
-            <id>validate</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-        <configuration>
-          <suiteXmlFiles>${suite.xml.name}</suiteXmlFiles>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
-
-  <dependencies>
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
 
@@ -170,7 +107,9 @@
       <version>${webdriver.version}</version>
     </dependency>
 
+
   </dependencies>
+
 
   <build>
     <plugins>
@@ -206,6 +145,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -216,4 +156,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

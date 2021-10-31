@@ -1,16 +1,17 @@
 package home.epam.hw3.pages;
 
+import java.util.ArrayList;
 import java.util.List;
-import org.openqa.selenium.By;
+import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 
-public class DifferentElementsPage {
-    SoftAssert softAssert = new SoftAssert();
-    public WebDriver driver;
+@Data
+public class DifferentElementsPage extends BasePage {
+
+    private List<String> logsText = new ArrayList<>();
 
     @FindBy(xpath = "//label[@class=\"label-checkbox\"]")
     private List<WebElement> checkboxes;
@@ -24,12 +25,12 @@ public class DifferentElementsPage {
     @FindBy(xpath = "//option[text()=\"Yellow\"]")
     private WebElement color;
 
-    @FindBy(xpath = "//ul[@class=\"panel-body-list logs\"]")
-    private WebElement log;
+    @FindBy(css = ".info-panel-body-log .panel-body-list > li")
+    private List<WebElement> log;
 
-    public DifferentElementsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+    public DifferentElementsPage(WebDriver webDriver) {
+        super(webDriver);
+        PageFactory.initElements(webDriver, this);
     }
 
     public void addConfig() {
@@ -40,14 +41,12 @@ public class DifferentElementsPage {
         color.click();
     }
 
-    public void logTxtAssert() {
-        List<WebElement> logTxt = log.findElements(By.tagName("li"));
-        softAssert.assertTrue(logTxt.get(0).getText().contains("Colors: value changed to Yellow"));
-        softAssert.assertTrue(logTxt.get(1).getText().contains("metal: value changed to Selen"));
-        softAssert.assertTrue(logTxt.get(2).getText().contains("Wind: condition changed to true"));
-        softAssert.assertTrue(logTxt.get(3).getText().contains("Water: condition changed to true"));
-        softAssert.assertAll();
+    public DifferentElementsPage collectLogs() {
+        for (WebElement element : log) {
+            System.out.println(element.getText());
+            logsText.add(element.getText().substring(9));
+        }
+        return this;
     }
-
 }
 
