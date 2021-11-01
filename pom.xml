@@ -25,10 +25,13 @@
 
     <aspectj.version>1.9.5</aspectj.version>
     <allure.version>2.14.0</allure.version>
+    <assertj.version>3.21.0</assertj.version>
+    <assetj.version>3.21.0</assetj.version>
   </properties>
   <profiles>
     <profile>
       <id>homework4-differnt-page-test-suite</id>
+      <id>homework2-differnt-page-test-suite</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
@@ -50,23 +53,6 @@
         <!--<activeByDefault>true</activeByDefault>-->
       </activation>
       <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/DifferentElementsPageTestSuite.xml</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>homework3-home-page-test-suite</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/HomePageTestSuite.xml</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>homework2-differnt-page-test-suite</id>
-      <activation>
-       <!-- <activeByDefault>true</activeByDefault>-->
-      </activation>
-      <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/DifferentElementsPageTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
@@ -75,6 +61,23 @@
       <id>homework2-home-page-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/HomePageTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>homework3-differnt-page-test-suite</id>
+      <activation>
+       <!-- <activeByDefault>true</activeByDefault>-->
+      </activation>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/DifferentElementsPageTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>homework3-home-page-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/HomePageTestSuite.xml</suite.xml.name>
       </properties>
     </profile>
 
@@ -114,13 +117,6 @@
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdriver.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -198,6 +194,25 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -207,6 +222,7 @@
   <reporting>
     <excludeDefaults>true</excludeDefaults>
     <plugins>
+
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
@@ -218,5 +234,7 @@
     </plugins>
   </reporting>
 
+
+  </build>
 
 </project>

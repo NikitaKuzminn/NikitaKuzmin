@@ -1,36 +1,28 @@
 package home.epam.hw3.confing;
 
-import home.epam.hw3.pages.DifferentElementsPage;
-import home.epam.hw3.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    public WebDriver webDriver;
-    public HomePage homePage;
-    public DifferentElementsPage differentElementsPage;
+    protected WebDriver webDriver;
+    public static final String PAGE = ConfProperties.getProperty("page");
 
-    public BaseTest() {
-    }
-
-    @BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        homePage = new HomePage(webDriver);
-        differentElementsPage = new DifferentElementsPage(webDriver);
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
-        webDriver.get(ConfProperties.getProperty("page"));
+        webDriver.manage().timeouts()
+                 .implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        homePage.logout();
+
         webDriver.quit();
     }
 }
