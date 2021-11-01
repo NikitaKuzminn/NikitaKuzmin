@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
     protected WebDriver webDriver;
-    protected String pageID;
     public static final String PAGE = ConfProperties.getProperty("page");
 
     @BeforeMethod(alwaysRun = true)

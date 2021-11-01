@@ -20,7 +20,6 @@ public class HomePageTest extends BaseTest {
 
         homePage.open(PAGE);
         softAssert.assertEquals(webDriver.getCurrentUrl(), PAGE);
-        pageID = webDriver.getWindowHandle();
 
         //2.Assert Browser title
         softAssert.assertEquals(homePage.getPageTitle(), ConfProperties.getProperty("title"));
@@ -46,9 +45,9 @@ public class HomePageTest extends BaseTest {
 
         //8.(9, 10)iFrame assert
         softAssert.assertTrue(homePage.getButtonFrame().isDisplayed());
-        homePage.switchOn(true);
+        homePage.switchToFrame();
         softAssert.assertEquals(homePage.getValueOfFrameButton(), ConfProperties.getProperty("frameButton"));
-        homePage.switchOn(false);
+        homePage.switchToDefault();
 
         //11.Left menu assert
         LeftMenu leftMenu = new LeftMenu(webDriver);

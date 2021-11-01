@@ -4,11 +4,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 public class HomePage extends BasePage {
 
@@ -37,8 +39,12 @@ public class HomePage extends BasePage {
         return webDriver.getTitle();
     }
 
-    public void switchOn(boolean flag) {
-        webDriver = (flag) ? this.webDriver.switchTo().frame(buttonFrame) : this.webDriver.switchTo().defaultContent();
+    public void switchToFrame() {
+        webDriver.switchTo().frame(buttonFrame);
+    }
+
+    public void switchToDefault() {
+        webDriver.switchTo().parentFrame();
     }
 
     public String getValueOfFrameButton() {

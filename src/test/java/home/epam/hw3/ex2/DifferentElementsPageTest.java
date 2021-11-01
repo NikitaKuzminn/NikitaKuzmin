@@ -19,7 +19,6 @@ public class DifferentElementsPageTest extends BaseTest {
 
         homePage.open(PAGE);
         assertThat(webDriver.getCurrentUrl()).isEqualTo(PAGE);
-        pageID = webDriver.getWindowHandle();
 
         // 2. Assert Browser title
         assertThat(webDriver.getTitle()).isEqualTo(ConfProperties.getProperty("title"));

@@ -2,13 +2,19 @@ package home.epam.hw3.pages;
 
 import home.epam.hw3.confing.ConfProperties;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+@EqualsAndHashCode(callSuper = false)
 @Data
 public class HeaderMenu extends BasePage {
+
+    protected static String LOGIN = ConfProperties.getProperty("login");
+    protected static String PASSWORD = ConfProperties.getProperty("password");
 
     @FindBy(id = "user-icon")
     private WebElement loginIcon;
@@ -44,15 +50,15 @@ public class HeaderMenu extends BasePage {
 
     public void login() {
         loginIcon.click();
-        loginField.sendKeys(ConfProperties.getProperty("login"));
-        passField.sendKeys(ConfProperties.getProperty("password"));
+        loginField.sendKeys(LOGIN);
+        passField.sendKeys(PASSWORD);
         loginButton.click();
     }
 
     public void logout() {
         try {
             logoutButton.click();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             loginIcon.click();
             logoutButton.click();
         }
