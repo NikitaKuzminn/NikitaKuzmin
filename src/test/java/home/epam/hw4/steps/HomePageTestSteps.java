@@ -1,46 +1,92 @@
 package home.epam.hw4.steps;
 
-import home.epam.hw4.confing.BaseConfing;
+import home.epam.hw4.confing.ConfProperties;
+import home.epam.hw4.confing.Values;
+import home.epam.hw4.pages.HeaderMenu;
 import home.epam.hw4.pages.HomePage;
+import home.epam.hw4.pages.LeftMenu;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 
 public class HomePageTestSteps {
 
-    HomePage homePage;
+    SoftAssert softAssert = new SoftAssert();
+    protected HeaderMenu headerMenu;
+    protected HomePage homePage;
+    protected LeftMenu leftMenu;
 
-    @Step("Browser title assert")
-    public void browserTitleAssertStep(WebDriver webDriver) {
-        homePage.homePageAssert(webDriver);
+    public HomePageTestSteps(WebDriver webDriver) {
+        headerMenu = new HeaderMenu(webDriver);
+        homePage = new HomePage(webDriver);
+        leftMenu = new LeftMenu(webDriver);
     }
 
-    @Step("Login assert")
-    public void loginAssertStep() {
-        homePage.login();
+    @Step("Open page")
+    public void openPage(String page) {
+        homePage.open(page);
     }
 
-    @Step("Head menu assert")
-    public void headMenuAssertStep() {
-        homePage.headMenuAssert();
+    @Step("Assert Browser title")
+    public void assertTitle() {
+        softAssert.assertEquals(homePage.getPageTitle(), ConfProperties.getProperty("title"));
     }
 
-    @Step("Index img and text assert")
-    public void indexImgAndTextAssertStep() {
-        homePage.benefitAssert();
+    @Step("Login perform")
+    public void loginPerform() {
+        headerMenu.login();
     }
 
-    @Step("Switch to iFrame")
-    public void frameAssertStep(WebDriver webDriver) {
-        homePage.frameSwitch(webDriver);
+    @Step("Assert username {username} loggined")
+    public void assertUserName(String username) {
+        softAssert.assertTrue(headerMenu.getUserName().isDisplayed());
+        softAssert.assertEquals(headerMenu.getUserNameText(), username);
     }
 
-    @Step("Switch back to Home Page")
-    public void switchBackStep(WebDriver webDriver) {
-        homePage.switchBack(webDriver);
+    @Step("Header section assert")
+    public void headerSection() {
+        softAssert.assertTrue(headerMenu.getHeaderMenu().isDisplayed());
+        softAssert.assertEquals(headerMenu.getHeaderMenuText(),
+            Values.HEAD_MENU_TEXT);
+    }
+
+    @Step("Benefit img assert")
+    public void assertImages() {
+        softAssert.assertEquals(homePage.getBenefitIcons().size(), 4);
+    }
+
+    @Step("Benefit text assert")
+    public void assertImagesTxt() {
+        softAssert.assertEquals(homePage.getBenefitTxt(), home.epam.hw3.confing.Values.IMG_TXT);
+    }
+
+    @Step("iFrame assert")
+    public void assertIframe() {
+        softAssert.assertTrue(homePage.getButtonFrame().isDisplayed());
+    }
+
+    @Step("Switch to iFrame and check button")
+    public void checkIframe() {
+        homePage.switchToFrame();
+        softAssert.assertEquals(homePage.getValueOfFrameButton(), ConfProperties.getProperty("frameButton"));
+    }
+
+    @Step("Switch back to default window")
+    public void switchBack() {
+        homePage.switchToDefault();
     }
 
     @Step("Left menu assert")
-    public void leftMenuAssertStep() {
-        homePage.leftMenuAssert();
+    public void assertLeftMenu() {
+        softAssert.assertEquals(leftMenu.getMenuTxt(leftMenu.getLeftMenu()), Values.LEFT_MENU_TEXT);
+    }
+
+    @Step("Logout")
+    public void logoutStep(){
+        headerMenu.logout();
+    }
+
+    public void assertAllAssertions() {
+        softAssert.assertAll();
     }
 }

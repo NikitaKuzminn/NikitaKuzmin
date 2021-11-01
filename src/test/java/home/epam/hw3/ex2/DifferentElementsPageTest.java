@@ -1,6 +1,13 @@
 package home.epam.hw3.ex2;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import home.epam.hw3.confing.BaseTest;
+import home.epam.hw3.confing.ConfProperties;
+import home.epam.hw3.confing.Values;
+import home.epam.hw3.pages.DifferentElementsPage;
+import home.epam.hw3.pages.HeaderMenu;
+import home.epam.hw3.pages.HomePage;
 import org.testng.annotations.Test;
 
 public class DifferentElementsPageTest extends BaseTest {
@@ -28,13 +35,13 @@ public class DifferentElementsPageTest extends BaseTest {
         DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
         headerMenu.goToDiffPage();
         differentElementsPage.addConfig();
-        //9.Log assert
-        differentElementsPage.logTxtAssert();
 
         //9. Log assert
         assertThat(differentElementsPage
             .collectLogs()
             .getLogsText())
             .isEqualTo(Values.LOGS);
+
+        headerMenu.logout();
     }
 }
