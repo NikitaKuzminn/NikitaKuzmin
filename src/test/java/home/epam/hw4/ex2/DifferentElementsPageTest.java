@@ -1,7 +1,7 @@
 package home.epam.hw4.ex2;
 
-import home.epam.hw3.confing.BaseTest;
-import home.epam.hw3.confing.ConfProperties;
+import home.epam.hw4.confing.BaseTest;
+import home.epam.hw4.confing.ConfProperties;
 import home.epam.hw4.confing.Listener;
 import home.epam.hw4.steps.DifferentElementsPageSteps;
 import io.qameta.allure.Description;
@@ -36,9 +36,6 @@ public class DifferentElementsPageTest extends BaseTest {
         differentElementsPageSteps.setConfig();
         //9.Log assert
         differentElementsPageSteps.logsCheck();
-
-        differentElementsPageSteps.logoutStep();
-
     }
 }
 

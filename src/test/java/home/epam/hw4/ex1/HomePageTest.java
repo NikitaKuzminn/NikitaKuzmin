@@ -1,7 +1,7 @@
 package home.epam.hw4.ex1;
 
-import home.epam.hw3.confing.BaseTest;
-import home.epam.hw3.confing.ConfProperties;
+import home.epam.hw4.confing.BaseTest;
+import home.epam.hw4.confing.ConfProperties;
 import home.epam.hw4.confing.Listener;
 import home.epam.hw4.steps.HomePageTestSteps;
 import io.qameta.allure.Description;

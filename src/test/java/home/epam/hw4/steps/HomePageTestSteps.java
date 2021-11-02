@@ -32,6 +32,11 @@ public class HomePageTestSteps {
         softAssert.assertEquals(homePage.getPageTitle(), ConfProperties.getProperty("title"));
     }
 
+    @Step("Wrong assert Browser title")
+    public void wrongAssertTitle() {
+        softAssert.assertEquals(homePage.getPageTitle(), ConfProperties.getProperty("mistake"));
+    }
+
     @Step("Login perform")
     public void loginPerform() {
         headerMenu.login();
@@ -82,7 +87,7 @@ public class HomePageTestSteps {
     }
 
     @Step("Logout")
-    public void logoutStep(){
+    public void logoutStep() {
         headerMenu.logout();
     }
 

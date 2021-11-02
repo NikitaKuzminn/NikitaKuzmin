@@ -2,9 +2,9 @@ package home.epam.hw4.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import home.epam.hw3.confing.ConfProperties;
-import home.epam.hw3.pages.DifferentElementsPage;
+import home.epam.hw4.confing.ConfProperties;
 import home.epam.hw4.confing.Values;
+import home.epam.hw4.pages.DifferentElementsPage;
 import home.epam.hw4.pages.HeaderMenu;
 import home.epam.hw4.pages.HomePage;
 import io.qameta.allure.Step;
@@ -61,10 +61,5 @@ public class DifferentElementsPageSteps {
             .collectLogs()
             .getLogsText())
             .isEqualTo(Values.LOGS);
-    }
-
-    @Step("Logout")
-    public void logoutStep() {
-        headerMenu.logout();
     }
 }
