@@ -51,7 +51,6 @@ public class HomePageTest extends BaseTest {
 
         //11.Left menu assert
         LeftMenu leftMenu = new LeftMenu(webDriver);
-
         softAssert.assertEquals(leftMenu.getMenuTxt(leftMenu.getLeftMenu()), Values.LEFT_MENU_TEXT);
 
         headerMenu.logout();

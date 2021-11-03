@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="All pages test">
+
+  <test name="All steps test suite">
+    <packages>
+      <package name="home.epam.hw4.ex1"/>
+      <package name="home.epam.hw4.ex2"/>
+    </packages>
+
+  </test>
+
+</suite>

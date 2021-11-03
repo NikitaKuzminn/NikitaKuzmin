@@ -41,5 +41,7 @@ public class DifferentElementsPageTest extends BaseTest {
             .collectLogs()
             .getLogsText())
             .isEqualTo(Values.LOGS);
+
+        headerMenu.logout();
     }
 }
