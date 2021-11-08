@@ -1,9 +1,9 @@
 package home.epam.hw6.tests;
 
-import home.epam.hw4.confing.BaseTest;
-import home.epam.hw4.confing.ConfProperties;
-import home.epam.hw4.confing.Listener;
-import home.epam.hw4.steps.DifferentElementsPageSteps;
+import home.epam.hw6.confing.BaseTest;
+import home.epam.hw6.confing.ConfProperties;
+import home.epam.hw6.confing.Listener;
+import home.epam.hw6.steps.DifferentElementsPageSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;

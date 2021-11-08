@@ -1,6 +1,6 @@
 package home.epam.hw6.pages;
 
-import home.epam.hw4.confing.ConfProperties;
+import home.epam.hw6.confing.ConfProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.openqa.selenium.NoSuchElementException;

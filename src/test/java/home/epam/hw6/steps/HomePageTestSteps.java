@@ -1,10 +1,10 @@
 package home.epam.hw6.steps;
 
-import home.epam.hw4.confing.ConfProperties;
-import home.epam.hw4.confing.Values;
-import home.epam.hw4.pages.HeaderMenu;
-import home.epam.hw4.pages.HomePage;
-import home.epam.hw4.pages.LeftMenu;
+import home.epam.hw6.confing.ConfProperties;
+import home.epam.hw6.confing.Values;
+import home.epam.hw6.pages.HeaderMenu;
+import home.epam.hw6.pages.HomePage;
+import home.epam.hw6.pages.LeftMenu;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;

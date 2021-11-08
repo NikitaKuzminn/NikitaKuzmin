@@ -2,11 +2,11 @@ package home.epam.hw6.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import home.epam.hw4.confing.ConfProperties;
-import home.epam.hw4.confing.Values;
-import home.epam.hw4.pages.DifferentElementsPage;
-import home.epam.hw4.pages.HeaderMenu;
-import home.epam.hw4.pages.HomePage;
+import home.epam.hw6.confing.ConfProperties;
+import home.epam.hw6.confing.Values;
+import home.epam.hw6.pages.DifferentElementsPage;
+import home.epam.hw6.pages.HeaderMenu;
+import home.epam.hw6.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
