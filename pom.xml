@@ -25,13 +25,20 @@
 
     <aspectj.version>1.9.5</aspectj.version>
     <allure.version>2.14.0</allure.version>
+
+    <cucumber-testng.version>7.0.0</cucumber-testng.version>
+    <cucumber-java.version>7.0.0</cucumber-java.version>
   </properties>
 
   <profiles>
     <profile>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
+      <id>homework5-cucumber-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home/epam/hw5/AllCucumberTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
       <id>homework4-all-steps-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw4/AllStepsTestSuite.xml</suite.xml.name>
@@ -55,9 +62,6 @@
 
     <profile>
       <id>homework3-differnt-page-test-suite</id>
-      <activation>
-        <!--<activeByDefault>true</activeByDefault>-->
-      </activation>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw3/DifferentElementsPageTestSuite.xml</suite.xml.name>
       </properties>
@@ -72,9 +76,6 @@
 
     <profile>
       <id>homework2-differnt-page-test-suite</id>
-      <activation>
-        <!-- <activeByDefault>true</activeByDefault>-->
-      </activation>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw2/DifferentElementsPageTestSuite.xml</suite.xml.name>
       </properties>
@@ -159,6 +160,18 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber-java.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${cucumber-testng.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -232,6 +245,5 @@
       </plugin>
     </plugins>
   </reporting>
-
 
 </project>
