@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Grid test suite">
+
+  <test name="Grid test">
+    <packages>
+      <package name="home.epam.hw6.tests"/>
+    </packages>
+  </test>
+
+</suite>

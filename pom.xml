@@ -32,6 +32,16 @@
 
   <profiles>
     <profile>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <id>homework6-selenium-grid-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw6/GridTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
       <id>homework5-cucumber-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home/epam/hw5/AllCucumberTestSuite.xml</suite.xml.name>
@@ -97,9 +107,6 @@
 
     <profile>
       <id>homework01-sum-sub-test-suite</id>
-      <activation>
-        <!--<activeByDefault>true</activeByDefault>-->
-      </activation>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.tc.hw1/SumSubCalculatorTestSuite.xml</suite.xml.name>
       </properties>
