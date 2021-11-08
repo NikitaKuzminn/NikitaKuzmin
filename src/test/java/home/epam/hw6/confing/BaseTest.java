@@ -2,12 +2,11 @@ package home.epam.hw6.confing;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import home.epam.hw6.util.webdriver.WebDriverProvider;
 import io.qameta.allure.Step;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,8 +17,7 @@ public class BaseTest {
 
     @BeforeMethod(description = "Setup browser and maximize window")
     public void setUp(ITestContext testContext) {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+        webDriver = WebDriverProvider.getDriver();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts()
                  .implicitlyWait(10, TimeUnit.SECONDS);
@@ -30,8 +28,7 @@ public class BaseTest {
     @Step("Close browser")
     public void tearDown() {
         System.out.println("after method");
-        webDriver.quit();
+        WebDriverProvider.closeDriver();
         assertThatThrownBy(webDriver::getTitle).isInstanceOf(NoSuchSessionException.class);
     }
-
 }
