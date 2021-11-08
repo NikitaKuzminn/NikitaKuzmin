@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="All cucumber test suite">
+
+  <test name="Cucumber test">
+    <classes>
+      <class name="home.epam.hw5.RunAcceptanceTest"/>
+    </classes>
+  </test>
+
+</suite>
