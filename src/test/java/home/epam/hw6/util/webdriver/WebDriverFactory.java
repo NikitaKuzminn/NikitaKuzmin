@@ -11,7 +11,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -59,11 +58,6 @@ public final class WebDriverFactory {
         return new FirefoxDriver();
     }
 
-    private static WebDriver createEdgeDriver() {
-        WebDriverManager.edgedriver().setup();
-        return new EdgeDriver();
-    }
-
     private static WebDriver createRemoteWebDriver(final Browser browser) {
         Capabilities capabilities;
 
@@ -79,7 +73,7 @@ public final class WebDriverFactory {
         }
         WebDriver driver;
         try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/"), capabilities);
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException(e);
         }
