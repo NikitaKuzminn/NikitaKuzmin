@@ -14,7 +14,7 @@ public class WebDriverProvider {
     public static WebDriver getDriver() {
         if (Objects.isNull(driver)) {
             String launchType = System.getProperty("launch.type", "local");
-            String browserName = System.getProperty("browser.name", "chrome");
+            String browserName = System.getProperty("browser.name", "opera");
             driver = WebDriverFactory.createWebDriver(launchType,
                 Browser.valueOf(browserName.toUpperCase(Locale.ROOT)));
         }

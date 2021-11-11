@@ -51,4 +51,3 @@ public class DifferentElementsPage extends BasePage {
         return this;
     }
 }
-

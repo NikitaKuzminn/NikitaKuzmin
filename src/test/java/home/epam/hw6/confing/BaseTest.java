@@ -20,7 +20,7 @@ public class BaseTest {
         webDriver = WebDriverProvider.getDriver();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts()
-                 .implicitlyWait(10, TimeUnit.SECONDS);
+                 .implicitlyWait(20, TimeUnit.SECONDS);
         testContext.setAttribute("driver", webDriver);
     }
 

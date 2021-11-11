@@ -38,4 +38,3 @@ public class DifferentElementsPageTest extends BaseTest {
         differentElementsPageSteps.logsCheck();
     }
 }
-

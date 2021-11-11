@@ -13,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -36,11 +38,14 @@ public final class WebDriverFactory {
     private static WebDriver createLocalWebDriver(final Browser browser) {
         WebDriver driver;
         switch (browser) {
+            case FIREFOX:
+                driver = createFireFoxDriver();
+                break;
             case CHROME:
                 driver = createChromeDriver();
                 break;
-            case FIREFOX:
-                driver = createFireFoxDriver();
+            case OPERA:
+                driver = createOperaDriver();
                 break;
             default:
                 throw new IllegalBrowserNameException();
@@ -53,6 +58,11 @@ public final class WebDriverFactory {
         return new ChromeDriver();
     }
 
+    private static WebDriver createOperaDriver() {
+        WebDriverManager.operadriver().setup();
+        return new OperaDriver();
+    }
+
     private static WebDriver createFireFoxDriver() {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
@@ -62,11 +72,14 @@ public final class WebDriverFactory {
         Capabilities capabilities;
 
         switch (browser) {
+            case FIREFOX:
+                capabilities = createFireFoxCapabilities();
+                break;
             case CHROME:
                 capabilities = createChromeCapabilities();
                 break;
-            case FIREFOX:
-                capabilities = createFireFoxCapabilities();
+            case OPERA:
+                capabilities = createOperaCapabilities();
                 break;
             default:
                 throw new IllegalBrowserNameException();
@@ -86,5 +99,9 @@ public final class WebDriverFactory {
 
     private static Capabilities createFireFoxCapabilities() {
         return new FirefoxOptions();
+    }
+
+    private static Capabilities createOperaCapabilities() {
+        return new OperaOptions();
     }
 }
