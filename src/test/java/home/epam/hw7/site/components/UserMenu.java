@@ -37,7 +37,7 @@ public class UserMenu extends Section {
         loginForm.login(user);
     }
 
-    public void logout(){
+    public void logout() {
         clickUserIcon();
         logoutBtn.click();
     }

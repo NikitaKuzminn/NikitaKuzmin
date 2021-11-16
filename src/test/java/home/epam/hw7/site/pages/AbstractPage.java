@@ -23,7 +23,7 @@ public abstract class AbstractPage extends WebPage {
         return header.isUserLoggedIn(user);
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return header.isLoggedIn();
     }
 }

@@ -1,6 +1,6 @@
 package home.epam.hw7.entities;
 
-import com.jdiai.tools.DataClass;
+import com.epam.jdi.tools.DataClass;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,17 +8,15 @@ import lombok.Setter;
 @Setter
 public class User extends DataClass<User> {
 
-    public static User DEFAULT_USER = new User("Roman", "Jdi123", "ROMAN IOVLEV");
+    public static User DEFAULT_USER = new User("Roman", "Jdi1234", "ROMAN IOVLEV");
 
-    public String name;
+    public String login;
     public String password;
     public String fullName;
 
-    public User(String name, String password, String fullName){
-        this.name = name;
+    public User(String login, String password, String fullName) {
+        this.login = login;
         this.password = password;
         this.fullName = fullName;
     }
-
-
 }

@@ -3,6 +3,7 @@ package home.epam.hw7.site;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import home.epam.hw7.entities.User;
+import home.epam.hw7.site.pages.AbstractPage;
 import home.epam.hw7.site.pages.HomePage;
 import home.epam.hw7.site.pages.MetalsAndColorsPage;
 
@@ -19,4 +20,9 @@ public class JdiTestSite {
         homePage.loginAs(User.DEFAULT_USER);
     }
 
+    public static void shouldBeLoggedOut(AbstractPage page) {
+        if (page.isLoggedIn()) {
+            page.logout();
+        }
+    }
 }

@@ -37,6 +37,13 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+      <id>homework7-jdi-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw7/JdiTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
       <id>homework6-selenium-grid-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw6/GridTestSuite.xml</suite.xml.name>
@@ -162,6 +169,7 @@
       <artifactId>allure-testng</artifactId>
       <version>${allure.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -186,11 +194,11 @@
       <artifactId>jdi-light-html</artifactId>
       <version>${jdi.version}</version>
     </dependency>
+
     <dependency>
-      <groupId>com.jdiai.tools</groupId>
-      <artifactId>jdi-light-saber</artifactId>
-      <version>3.0.6</version>
-      <scope>test</scope>
+      <groupId>com.epam.jdi</groupId>
+      <artifactId>jdi-light</artifactId>
+      <version>${jdi.version}</version>
     </dependency>
 
   </dependencies>
