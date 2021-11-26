@@ -9,7 +9,7 @@ import home.epam.hw7.site.components.util.HeaderItem;
 @UI(".uui-header.dark-gray")
 public class Header extends Section {
 
-    @UI("ul.uui-navigation.nav.navbar-nav.m-l8 li a")
+    @UI("ul.uui-navigation li a")
     public Menu headerMenu;
     @UI("ul.uui-navigation.navbar-nav.navbar-right")
     public UserMenu userMenu;

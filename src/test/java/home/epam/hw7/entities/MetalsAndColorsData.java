@@ -9,7 +9,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class MetalsAndColorsData extends DataClass<MetalsAndColorsData> {
 
     private Color color;
@@ -17,26 +21,6 @@ public class MetalsAndColorsData extends DataClass<MetalsAndColorsData> {
     private Vegetable[] vegetables;
     private Element[] elements;
     private int[] summary;
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Metal getMetals() {
-        return metals;
-    }
-
-    public Vegetable[] getVegetables() {
-        return vegetables;
-    }
-
-    public Element[] getElements() {
-        return elements;
-    }
-
-    public int[] getSummary() {
-        return summary;
-    }
 
     public List<String> getExpectedResult() {
         List<String> expectedResult = new LinkedList<>();

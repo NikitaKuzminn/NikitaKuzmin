@@ -25,7 +25,7 @@ public class MetalsAndColorsPageTest implements TestInit {
 
     @AfterMethod
     public void tearDown() {
-        JdiTestSite.shouldBeLoggedOut(metalsAndColorsPage);
+        JdiTestSite.shouldBeLoggedOut(homePage);
     }
 
     @DataProvider
@@ -35,7 +35,7 @@ public class MetalsAndColorsPageTest implements TestInit {
 
     @Test(dataProvider = "metalsAndColorsFormTestData")
     public void metalsAndColorsFormTest(MetalsAndColorsData testData) {
-        JdiTestSite.loginAsDefaultUser();
+        JdiTestSite.loginAsUser(User.DEFAULT_USER);
         homePage.isUserLoggedIn(User.DEFAULT_USER);
         homePage.navigateToItemInHeaderMenu(MetalsAndColors);
         assertTrue(metalsAndColorsPage.isOpened());

@@ -4,7 +4,7 @@ import static home.epam.hw7.site.components.util.Vegetable.VEGETABLES;
 
 import com.epam.jdi.light.elements.complex.Checklist;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
-import com.epam.jdi.light.elements.composite.Section;
+import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
@@ -14,7 +14,7 @@ import home.epam.hw7.site.components.util.Element;
 import home.epam.hw7.site.components.util.Vegetable;
 
 @UI(".main-content")
-public class MetalsAndColorsForm extends Section {
+public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
 
     @UI("#summary-block")
     public Summary summaryBlock;
