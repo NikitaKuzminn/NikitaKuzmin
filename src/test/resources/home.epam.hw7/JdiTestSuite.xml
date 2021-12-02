@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Jdi test suite">
+
+  <test name="Jdi Test">
+    <classes>
+      <class name="home.epam.hw7.tests.MetalsAndColorsPageTest"/>
+    </classes>
+  </test>
+
+</suite>
