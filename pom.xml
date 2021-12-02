@@ -21,13 +21,18 @@
     <checkstyle.version>8.42</checkstyle.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 
-    <assertj.version>3.21.0</assertj.version>
+    <assertj.version>3.15.0</assertj.version>
 
     <aspectj.version>1.9.5</aspectj.version>
     <allure.version>2.14.0</allure.version>
 
     <cucumber-testng.version>7.0.0</cucumber-testng.version>
     <cucumber-java.version>7.0.0</cucumber-java.version>
+
+    <rest-assured.version>4.2.0</rest-assured.version>
+    <json-simple.version>1.1.1</json-simple.version>
+
+    <jsonschema2pojo-maven-plugin.version>1.1.1</jsonschema2pojo-maven-plugin.version>
   </properties>
 
   <profiles>
@@ -35,6 +40,12 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+      <id>homework9-rest-trello-test-suite</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw9/RestTestSuite.xml</suite.xml.name>
+      </properties>
+    </profile>
+    <profile>
       <id>homework6-selenium-grid-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw6/GridTestSuite.xml</suite.xml.name>
@@ -49,7 +60,7 @@
     </profile>
 
     <profile>
-      <id>homework4-all-steps-test-suite</id>
+      <id>homework4-all-home.epam.hw9.steps-test-suite</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/home.epam.hw4/AllStepsTestSuite.xml</suite.xml.name>
       </properties>
@@ -121,6 +132,27 @@
   </profiles>
 
   <dependencies>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+
+
+    <dependency>
+
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>${json-simple.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -160,12 +192,6 @@
       <artifactId>allure-testng</artifactId>
       <version>${allure.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
-    </dependency>
 
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -177,6 +203,19 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-testng</artifactId>
       <version>${cucumber-testng.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.4.0</version>
+      <scope>compile</scope>
     </dependency>
 
   </dependencies>
