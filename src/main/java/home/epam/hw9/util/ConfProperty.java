@@ -6,17 +6,32 @@ import java.util.Properties;
 
 public class ConfProperty {
 
+    protected static FileInputStream fileInputStream;
+    protected static Properties properties;
+    protected static String path = "src/test/resources/home.epam.hw9/test.properties";
+
+    public ConfProperty() {
+    }
+
     public static String getProperty(String name) {
-        FileInputStream fis;
-        String properties = null;
-        Properties property = new Properties();
+        return properties.getProperty(name);
+    }
+
+    static {
         try {
-            fis = new FileInputStream("src/test/resources/home.epam.hw9/test.properties");
-            property.load(fis);
-            properties = property.getProperty(name);
+            fileInputStream = new FileInputStream(path);
+            properties = new Properties();
+            properties.load(fileInputStream);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return properties;
     }
 }

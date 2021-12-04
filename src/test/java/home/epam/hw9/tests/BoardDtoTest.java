@@ -15,15 +15,15 @@ import org.testng.annotations.Test;
 public class BoardDtoTest extends BaseTest {
 
     @Test(dataProvider = "boardData", dataProviderClass = DataProviders.class)
-    public void createBoardTest(BoardDto boardDto) {
-        boardId = boardSteps.createNewBoard(boardDto);
+    public void createBoardTest(BoardDto board) {
+        boardId = boardSteps.createNewBoard(board);
         BoardDto createdBoardDto = boardSteps.getBoard(boardId);
-        assertThat(createdBoardDto.getName(), equalTo(boardDto.getName()));
+        assertThat(createdBoardDto.getName(), equalTo(board.getName()));
     }
 
     @Test(dataProvider = "boardData", dataProviderClass = DataProviders.class)
-    public void deleteBoardTest(BoardDto boardDto) {
-        boardId = boardSteps.createNewBoard(boardDto);
+    public void deleteBoardTest(BoardDto board) {
+        boardId = boardSteps.createNewBoard(board);
         boardSteps.deleteBoard(boardId);
         Response response = boardSteps.getDeletedBoard(boardId);
         assertThat(response.getStatusCode(), equalTo(NOT_FOUND_STATUS));
@@ -32,9 +32,9 @@ public class BoardDtoTest extends BaseTest {
     }
 
     @Test(dataProvider = "boardData", dataProviderClass = DataProviders.class)
-    public void updateBoardTest(BoardDto boardDto) {
-        boardId = boardSteps.createNewBoard(boardDto);
-        BoardDto boardDtoToUpdate = boardSteps.updateBoardName(boardId);
-        assertThat(boardDtoToUpdate.getName(), equalTo(NEW_BOARD_NAME));
+    public void updateBoardTest(BoardDto board) {
+        boardId = boardSteps.createNewBoard(board);
+        BoardDto boardToUpdate = boardSteps.updateBoardName(boardId);
+        assertThat(boardToUpdate.getName(), equalTo(NEW_BOARD_NAME));
     }
 }

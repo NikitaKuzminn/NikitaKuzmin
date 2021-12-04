@@ -1,6 +1,6 @@
 package home.epam.hw9.steps;
 
-import static home.epam.hw9.service.BoardService.apiBoardBuilder;
+import static home.epam.hw9.service.BoardService.boardServiceBuilder;
 import static home.epam.hw9.service.BoardService.extractBoardFromJson;
 import static home.epam.hw9.service.CommonService.notFoundResponseSpec;
 import static home.epam.hw9.service.CommonService.okResponseSpec;
@@ -15,8 +15,8 @@ import io.restassured.specification.ResponseSpecification;
 
 public class BoardSteps {
 
-    public Response sendRequestAndGetResponse(BoardService.BoardApiBuilder api, ResponseSpecification resp) {
-        Response response = api
+    public Response getResponse(BoardService.BoardServiceBuilder requestBuilder, ResponseSpecification resp) {
+        Response response = requestBuilder
             .buildBoardApiRequest()
             .sendRequest();
         response.then()
@@ -26,43 +26,43 @@ public class BoardSteps {
     }
 
     @Step("Create new board")
-    public String createNewBoard(BoardDto boardDto) {
-        BoardService.BoardApiBuilder api = apiBoardBuilder()
+    public String createNewBoard(BoardDto board) {
+        BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.POST)
-            .setName(boardDto.getName());
-        return extractBoardFromJson(sendRequestAndGetResponse(api, okResponseSpec())).getId();
+            .setName(board.getName());
+        return extractBoardFromJson(getResponse(requestBuilder, okResponseSpec())).getId();
     }
 
     @Step("Get board by id")
-    public BoardDto getBoard(String boardId) {
-        BoardService.BoardApiBuilder api = apiBoardBuilder()
+    public BoardDto getBoard(String id) {
+        BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.GET)
-            .setId(boardId);
-        return extractBoardFromJson(sendRequestAndGetResponse(api, okResponseSpec()));
+            .setId(id);
+        return extractBoardFromJson(getResponse(requestBuilder, okResponseSpec()));
     }
 
     @Step("Delete board by id")
-    public void deleteBoard(String boardId) {
-        BoardService.BoardApiBuilder api = apiBoardBuilder()
+    public void deleteBoard(String id) {
+        BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.DELETE)
-            .setId(boardId);
-        sendRequestAndGetResponse(api, okResponseSpec());
+            .setId(id);
+        getResponse(requestBuilder, okResponseSpec());
     }
 
     @Step("Get deleted board by id")
-    public Response getDeletedBoard(String boardId) {
-        BoardService.BoardApiBuilder builder = apiBoardBuilder()
+    public Response getDeletedBoard(String id) {
+        BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.GET)
-            .setId(boardId);
-        return sendRequestAndGetResponse(builder, notFoundResponseSpec());
+            .setId(id);
+        return getResponse(requestBuilder, notFoundResponseSpec());
     }
 
     @Step("Update board name by id")
-    public BoardDto updateBoardName(String boardId) {
-        BoardService.BoardApiBuilder api = apiBoardBuilder()
+    public BoardDto updateBoardName(String id) {
+        BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.PUT)
-            .setId(boardId);
-        api.setName(NEW_BOARD_NAME);
-        return extractBoardFromJson(sendRequestAndGetResponse(api, okResponseSpec()));
+            .setId(id);
+        requestBuilder.setName(NEW_BOARD_NAME);
+        return extractBoardFromJson(getResponse(requestBuilder, okResponseSpec()));
     }
 }

@@ -11,21 +11,21 @@ public class DataProviders {
 
     @DataProvider
     public static Object[][] boardData() {
-        BoardDto boardDto = new BoardDto();
-        boardDto.setName(BOARD_NAME);
+        BoardDto board = new BoardDto();
+        board.setName(BOARD_NAME);
         return new Object[][] {
-            {boardDto}
+            {board}
         };
     }
 
     @DataProvider
     public static Object[][] listData() {
-        BoardDto boardDto = new BoardDto();
-        boardDto.setName(BOARD_NAME);
-        ListDto listDto = new ListDto();
-        listDto.setName(LIST_NAME);
+        BoardDto board = new BoardDto();
+        board.setName(BOARD_NAME);
+        ListDto list = new ListDto();
+        list.setName(LIST_NAME);
         return new Object[][] {
-            {boardDto, listDto}
+            {board, list}
         };
     }
 }

@@ -17,31 +17,31 @@ import java.util.Map;
 public class ListService extends CommonService {
     public static final URI LIST_URL = URI.create(LISTS_URL);
 
-    public static ListApiBuilder listApiBuilder() {
-        return new ListApiBuilder();
+    public static ListServiceBuilder listServiceBuilder() {
+        return new ListServiceBuilder();
     }
 
-    public static class ListApiBuilder {
+    public static class ListServiceBuilder {
         private final Map<String, String> queryParameters = new HashMap<>();
         private final Map<String, String> pathParameters = new HashMap<>();
         private Method requestedMethod = Method.GET;
 
-        public ListApiBuilder setMethod(Method method) {
+        public ListServiceBuilder setMethod(Method method) {
             requestedMethod = method;
             return this;
         }
 
-        public ListApiBuilder setId(String id) {
+        public ListServiceBuilder setId(String id) {
             pathParameters.put(ID, id);
             return this;
         }
 
-        public ListApiBuilder setIdBoard(String idBoard) {
+        public ListServiceBuilder setIdBoard(String idBoard) {
             queryParameters.put(BOARD_ID, idBoard);
             return this;
         }
 
-        public ListApiBuilder setName(String name) {
+        public ListServiceBuilder setName(String name) {
             queryParameters.put(NAME, name);
             return this;
         }
@@ -64,4 +64,3 @@ public class ListService extends CommonService {
         }.getType());
     }
 }
-

@@ -12,8 +12,9 @@ public class BaseTest {
     String listId;
 
     @BeforeMethod
-    public void createBoardSetUp() {
+    public void setUp() {
         boardSteps = new BoardSteps();
+        listSteps = new ListSteps();
     }
 
     @AfterMethod

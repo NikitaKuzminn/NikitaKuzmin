@@ -16,26 +16,26 @@ import java.util.Map;
 public class BoardService extends CommonService {
     public static final URI BOARD_URL = URI.create(URL_BOARD);
 
-    public static BoardApiBuilder apiBoardBuilder() {
-        return new BoardApiBuilder();
+    public static BoardServiceBuilder boardServiceBuilder() {
+        return new BoardServiceBuilder();
     }
 
-    public static class BoardApiBuilder {
+    public static class BoardServiceBuilder {
         private final Map<String, String> queryParameters = new HashMap<>();
         private final Map<String, String> pathParameters = new HashMap<>();
         private Method requestedMethod = Method.GET;
 
-        public BoardApiBuilder setMethod(Method method) {
+        public BoardServiceBuilder setMethod(Method method) {
             requestedMethod = method;
             return this;
         }
 
-        public BoardApiBuilder setId(String id) {
+        public BoardServiceBuilder setId(String id) {
             pathParameters.put(ID, id);
             return this;
         }
 
-        public BoardApiBuilder setName(String name) {
+        public BoardServiceBuilder setName(String name) {
             queryParameters.put(NAME, name);
             return this;
         }

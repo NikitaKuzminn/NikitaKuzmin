@@ -53,7 +53,7 @@ public class CommonService {
 
     public Response sendRequest(RequestSpecification request) {
         return RestAssured
-            .given(request).log().all()
+            .given(request).log().body()
             .pathParams(pathParameters)
             .queryParams(queryParameters)
             .queryParam(KEY, USER_KEY)
@@ -62,7 +62,7 @@ public class CommonService {
             .prettyPeek();
     }
 
-    public static RequestSpecification requestSpec(URI url) {
+    public RequestSpecification requestSpec(URI url) {
         return new RequestSpecBuilder()
             .setAccept(ContentType.JSON)
             .setContentType(ContentType.JSON)

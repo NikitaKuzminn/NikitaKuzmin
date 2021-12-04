@@ -7,26 +7,23 @@ import static org.hamcrest.Matchers.equalTo;
 import home.epam.hw9.data.DataProviders;
 import home.epam.hw9.entities.BoardDto;
 import home.epam.hw9.entities.ListDto;
-import home.epam.hw9.steps.ListSteps;
 import org.testng.annotations.Test;
 
 public class ListDtoTest extends BaseTest {
 
     @Test(dataProvider = "listData", dataProviderClass = DataProviders.class)
-    public void createListTest(BoardDto boardDto, ListDto listDto) {
-        listSteps = new ListSteps();
-        boardId = boardSteps.createNewBoard(boardDto);
-        listId = listSteps.createList(boardId, listDto);
+    public void createListTest(BoardDto board, ListDto list) {
+        boardId = boardSteps.createNewBoard(board);
+        listId = listSteps.createList(boardId, list);
         ListDto createdListDto = listSteps.getList(listId);
-        assertThat(createdListDto.getName(), equalTo(listDto.getName()));
+        assertThat(createdListDto.getName(), equalTo(list.getName()));
     }
 
     @Test(dataProvider = "listData", dataProviderClass = DataProviders.class)
-    public void modifyListTest(BoardDto boardDto, ListDto listDto) {
-        listSteps = new ListSteps();
-        boardId = boardSteps.createNewBoard(boardDto);
-        listId = listSteps.createList(boardId, listDto);
-        ListDto listDtoToUpdate = listSteps.updateListName(listId);
-        assertThat(listDtoToUpdate.getName(), equalTo(NEW_LIST_NAME));
+    public void modifyListTest(BoardDto board, ListDto list) {
+        boardId = boardSteps.createNewBoard(board);
+        listId = listSteps.createList(boardId, list);
+        ListDto listToUpdate = listSteps.updateListName(listId);
+        assertThat(listToUpdate.getName(), equalTo(NEW_LIST_NAME));
     }
 }
