@@ -4,6 +4,7 @@ import static home.epam.hw9.service.BoardService.boardServiceBuilder;
 import static home.epam.hw9.service.BoardService.extractBoardFromJson;
 import static home.epam.hw9.service.CommonService.notFoundResponseSpec;
 import static home.epam.hw9.service.CommonService.okResponseSpec;
+import static home.epam.hw9.util.Values.BOARD_NAME;
 import static home.epam.hw9.util.Values.NEW_BOARD_NAME;
 
 import home.epam.hw9.entities.BoardDto;
@@ -17,7 +18,7 @@ public class BoardSteps {
 
     public Response getResponse(BoardService.BoardServiceBuilder requestBuilder, ResponseSpecification resp) {
         Response response = requestBuilder
-            .buildBoardApiRequest()
+            .build()
             .sendRequest();
         response.then()
                 .assertThat()
@@ -26,10 +27,10 @@ public class BoardSteps {
     }
 
     @Step("Create new board")
-    public String createNewBoard(BoardDto board) {
+    public String createNewBoard(String name) {
         BoardService.BoardServiceBuilder requestBuilder = boardServiceBuilder()
             .setMethod(Method.POST)
-            .setName(board.getName());
+            .setName(BOARD_NAME);
         return extractBoardFromJson(getResponse(requestBuilder, okResponseSpec())).getId();
     }
 

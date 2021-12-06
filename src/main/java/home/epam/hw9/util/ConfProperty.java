@@ -6,7 +6,6 @@ import java.util.Properties;
 
 public class ConfProperty {
 
-    protected static FileInputStream fileInputStream;
     protected static Properties properties;
     protected static String path = "src/test/resources/home.epam.hw9/test.properties";
 
@@ -18,20 +17,11 @@ public class ConfProperty {
     }
 
     static {
-        try {
-            fileInputStream = new FileInputStream(path);
+        try (FileInputStream fileInputStream = new FileInputStream(path)) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

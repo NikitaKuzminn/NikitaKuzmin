@@ -46,7 +46,7 @@ public class ListService extends CommonService {
             return this;
         }
 
-        public ListService buildListApiRequest() {
+        public ListService build() {
             return new ListService(requestedMethod, queryParameters, pathParameters);
         }
     }

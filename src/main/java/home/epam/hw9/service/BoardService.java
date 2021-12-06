@@ -40,7 +40,7 @@ public class BoardService extends CommonService {
             return this;
         }
 
-        public BoardService buildBoardApiRequest() {
+        public BoardService build() {
             return new BoardService(requestedMethod, queryParameters, pathParameters);
         }
     }

@@ -17,7 +17,7 @@ public class ListSteps {
     public ListDto getResponse(ListService.ListServiceBuilder requestBuilder,
                                              ResponseSpecification resp) {
         Response response = requestBuilder
-            .buildListApiRequest()
+            .build()
             .sendRequest();
         response.then()
                 .assertThat()
@@ -26,10 +26,10 @@ public class ListSteps {
     }
 
     @Step("Create new list")
-    public String createList(String boardId, ListDto list) {
+    public String createList(String boardId, String name) {
         ListService.ListServiceBuilder requestBuilder = listServiceBuilder()
             .setMethod(Method.POST)
-            .setName(list.getName())
+            .setName(name)
             .setIdBoard(boardId);
         return getResponse(requestBuilder, okResponseSpec()).getId();
     }
