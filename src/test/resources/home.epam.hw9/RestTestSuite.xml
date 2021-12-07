@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Rest Assured Trello Test Suite">
+    <test name="Rest trello board and list tests">
+        <classes>
+            <class name="home.epam.hw9.tests.BoardDtoTest"/>
+            <class name="home.epam.hw9.tests.ListDtoTest"/>
+        </classes>
+    </test>
+</suite>
